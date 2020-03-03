@@ -3,7 +3,6 @@ CREATE TABLE capsules (
     title TEXT NOT NULL,
     contents TEXT NOT NULL,
     imageurl TEXT,
-    burydate TEXT NOT NULL,
-    opendate TEXT NOT NULL,
-    opennumber BIGINT NOT NULL
+    burydate DATETIME,
+    opendate DATETIME
 )

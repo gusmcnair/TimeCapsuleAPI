@@ -23,23 +23,22 @@ const serializeCapsulePost = (capsule) => ({
   title: xss(capsule.title),
   contents: xss(capsule.contents),
   imageurl: xss(capsule.imageurl),
-  burydate: xss(capsule.burydate),
-  opendate: xss(capsule.opendate),
-  opennumber: capsule.opennumber
+  burydate: capsule.burydate,
+  opendate: capsule.opendate,
 })
 
 const serializeCapsuleGetById = (capsule) => ({
   id: capsule.id,
   contents: xss(capsule.contents),
   imageurl: xss(capsule.imageurl),
+  opennumber: capsule.opendate
 })
 
 const serializeCapsuleGet = (capsule) => ({
   id: capsule.id,
   title: xss(capsule.title),
-  burydate: xss(capsule.burydate),
-  opendate: xss(capsule.opendate),
-  opennumber: capsule.opennumber
+  burydate: capsule.burydate,
+  opendate: capsule.opendate,
 })
 
 app.use(
@@ -77,7 +76,7 @@ app
     const knexInstance = req.app.get('db')
     const {title, contents, imageurl, burydate, opendate, opennumber} = req.body
     const newCapsule = {title, contents, imageurl, burydate, opendate, opennumber}
-    if(!title || !contents || !burydate || !opendate || !opennumber){
+    if(!title || !contents || !burydate || !opendate){
       return res.status(400).json('Missing required data.')
     }
     CapsulesService.insertCapsules(knexInstance, newCapsule)
