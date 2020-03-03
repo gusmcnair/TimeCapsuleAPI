@@ -33,14 +33,14 @@ const serializeCapsuleGetById = (capsule) => ({
   id: capsule.id,
   contents: xss(capsule.contents),
   imageurl: xss(capsule.imageurl),
-  opendates: moment.parseZone(capsule.opendates).format('LLL')
+  opendates: moment.utc(capsule.opendates).format('LLL')
 })
 
 const serializeCapsuleGet = (capsule) => ({
   id: capsule.id,
   title: xss(capsule.title),
-  burydate: moment.parseZone(capsule.burydate).format('LLL'),
-  opendates: moment.parseZone(capsule.opendates).format('LLL'),
+  burydate: moment.utc(capsule.burydate).format('LLL'),
+  opendates: moment.utc(capsule.opendates).format('LLL'),
 })
 /*
 app.use(
