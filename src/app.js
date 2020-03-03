@@ -42,13 +42,13 @@ const serializeCapsuleGet = (capsule) => ({
   burydate: moment.utc(capsule.burydate).format('LLL'),
   opendates: moment.utc(capsule.opendates).format('LLL'),
 })
-/*
+
 app.use(
     cors({
         origin: CLIENT_ORIGIN
     })
 );
-*/
+
 app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
