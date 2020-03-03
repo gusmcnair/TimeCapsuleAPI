@@ -33,14 +33,14 @@ const serializeCapsuleGetById = (capsule) => ({
   id: capsule.id,
   contents: xss(capsule.contents),
   imageurl: xss(capsule.imageurl),
-  opendates: moment.utc(capsule.opendates).local().format('LLL')
+  opendates: moment.utc(capsule.opendates).format('LLL')
 })
 
 const serializeCapsuleGet = (capsule) => ({
   id: capsule.id,
   title: xss(capsule.title),
-  burydate: moment.utc(capsule.burydate).local().format('LLL'),
-  opendates: moment.utc(capsule.opendates).local().format('LLL'),
+  burydate: moment.utc(capsule.burydate).format('LLL'),
+  opendates: moment.utc(capsule.opendates).format('LLL'),
 })
 /*
 app.use(
@@ -64,10 +64,7 @@ app
   .route('/api/capsules')
   .get((req, res, next) => {
     const knexInstance = req.app.get('db')
-    console.log(req.query.auth)
-    console.log({API_TOKEN})
     if(!req.query.auth || req.query.auth !== API_TOKEN){return(res.status(403).json('Invalid authorization'))}
-    console.log('hi' + req.query.auth)
     CapsulesService.getCapsules(knexInstance)
       .then(capsules => {
         res.status(200).json(capsules.map(serializeCapsuleGet))
