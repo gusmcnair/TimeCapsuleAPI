@@ -100,7 +100,7 @@ app
     CapsulesService.getCapsuleById(knexInstance, req.params.capsule_id)
       .then(capsule => {
         if(!capsule){return res.status(404).json('Capsule not found')}
-        if(capsule.opendates >= moment()){return res.status(403).json('This capsule is not ready to be opened yet.')}
+        if(moment(capsule.opendates).format() > moment().format()){return res.status(403).json('This capsule is not ready to be opened yet.')}
         res.capsule = capsule
         next()
       })
