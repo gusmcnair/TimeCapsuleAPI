@@ -2,7 +2,7 @@ const CapsulesService = {
     getCapsules(db){
         return db
             .from('capsules')
-            .select('capsules.id', 'capsules.title', 'capsules.burydate', 'capsules.opendate')
+            .select('capsules.id', 'capsules.title', 'capsules.burydate', 'capsules.opendates')
     },
     insertCapsules(db, newCapsule){
         return db
@@ -16,7 +16,7 @@ const CapsulesService = {
     getCapsuleById(db, capsuleId){
         return db
             .from('capsules')
-            .select('capsules.id', 'capsules.contents', 'capsules.imageurl', 'capsules.opendate')
+            .select('capsules.id', 'capsules.contents', 'capsules.imageurl', 'capsules.opendates')
             .where('capsules.id', capsuleId)
             .first()
     },

@@ -11,6 +11,8 @@ const logger = require('./logger')
 const path = require('path')
 const xss = require('xss')
 const {CLIENT_ORIGIN} = require('./config');
+const moment = require('moment')
+
 
 const app = express()
 
@@ -24,29 +26,29 @@ const serializeCapsulePost = (capsule) => ({
   contents: xss(capsule.contents),
   imageurl: xss(capsule.imageurl),
   burydate: capsule.burydate,
-  opendate: capsule.opendate,
+  opendates: capsule.opendates,
 })
 
 const serializeCapsuleGetById = (capsule) => ({
   id: capsule.id,
   contents: xss(capsule.contents),
   imageurl: xss(capsule.imageurl),
-  opennumber: capsule.opendate
+  opendates: capsule.opendates
 })
 
 const serializeCapsuleGet = (capsule) => ({
   id: capsule.id,
   title: xss(capsule.title),
   burydate: capsule.burydate,
-  opendate: capsule.opendate,
+  opendates: capsule.opendates,
 })
-
+/*
 app.use(
     cors({
         origin: CLIENT_ORIGIN
     })
 );
-
+*/
 app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
@@ -63,6 +65,8 @@ app
   .route('/api/capsules')
   .get((req, res, next) => {
     const knexInstance = req.app.get('db')
+    console.log(req.query.auth)
+    console.log({API_TOKEN})
     if(!req.query.auth || req.query.auth !== API_TOKEN){return(res.status(403).json('Invalid authorization'))}
     console.log('hi' + req.query.auth)
     CapsulesService.getCapsules(knexInstance)
@@ -74,9 +78,9 @@ app
   .post(jsonParser, (req, res, next) => {
     if(!req.query.auth || req.query.auth !== API_TOKEN){return(res.status(403).json('Invalid authorization'))}
     const knexInstance = req.app.get('db')
-    const {title, contents, imageurl, burydate, opendate, opennumber} = req.body
-    const newCapsule = {title, contents, imageurl, burydate, opendate, opennumber}
-    if(!title || !contents || !burydate || !opendate){
+    const {title, contents, imageurl, burydate, opendates} = req.body
+    const newCapsule = {title, contents, imageurl, burydate, opendates}
+    if(!title || !contents || !burydate || !opendates){
       return res.status(400).json('Missing required data.')
     }
     CapsulesService.insertCapsules(knexInstance, newCapsule)
@@ -100,8 +104,7 @@ app
     CapsulesService.getCapsuleById(knexInstance, req.params.capsule_id)
       .then(capsule => {
         if(!capsule){return res.status(404).json('Capsule not found')}
-        console.log(capsule)
-        if(capsule.opennumber >= Date.now()){return res.status(403).json('This capsule is not ready to be opened yet.')}
+        if(capsule.opendates >= moment()){return res.status(403).json('This capsule is not ready to be opened yet.')}
         res.capsule = capsule
         next()
       })
