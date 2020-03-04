@@ -1,26 +1,19 @@
-# Express Boilerplate!
+<h1>Time Capsule</h1>
 
-This is a boilerplate project used for starting new projects!
+Time Capsule is an app for sending messages that can be accessed only by your future self, whether tomorrow, a month from now, or in five years. Use it to send reminders, pass encouragement to a future version of you, or just document what your life is like right now.
+ 
 
-## Set up
+[Link to live app](https://timecapsule.now.sh/)
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+[Link to backend repo](https://github.com/gusmcnair/TimeCapsuleClient2)
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+<h2>How it works</h2>
+The Time Capsule backend has two endpoints: api/capsules and api/capsules/:id. api/capsules accepts a GET method, which returns its title, buried date and open date, but not its contents. POST allows the data and returns this same data, confirming it was posted. api/capsules/:id has a GET method as well, allowing users to retrieve data for a specific time capsule (including its contents). It also allows users to DELETE specific, individual capsules.
 
-## Scripts
-
-Start the application `npm start`
-
-Start nodemon for the application `npm run dev`
-
-Run the tests `npm test`
-
-## Deploying
-
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+<h2>Technologies used</h2>
+<ul>
+    <li>Node.js</li>
+    <li>Moment.js</li>
+    <li>Express.js</li>
+    <li>JavaScript</li>
+</ul>
