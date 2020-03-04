@@ -34,6 +34,7 @@ const serializeCapsuleGetById = (capsule) => ({
   contents: xss(capsule.contents),
   imageurl: xss(capsule.imageurl),
   opendates: moment.utc(capsule.opendates)
+})
 
 const serializeCapsuleGet = (capsule) => ({
   id: capsule.id,
