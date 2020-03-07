@@ -2,18 +2,18 @@
 
 <h2>/api/capsules GET method</h2>
 
-<p>**URL:** `/api/capsules`</p>
+**URL:** `/api/capsules`
 
-<p>**Auth required:** YES</p>
+**Auth required:** YES
 
-<p>**Query requirements:** None aside from auth</p> 
+**Query requirements:** None aside from auth
 
-<p>**Response success status:** 200</p> 
+**Response success status:** 200
 
-<p>**Response success body:** A JSON object including id, title, bury date and open date.</p> 
+**Response success body:** A JSON object including id, title, bury date and open date.
 
-<p>**Possible errors:**</p>
-<p>403 Invalid Authorization: Indicates that the authorization provided was not correct.</p> 
+**Possible errors:**
+403 Invalid Authorization: Indicates that the authorization provided was not correct.
 
 <hr>
 
