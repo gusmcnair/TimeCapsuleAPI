@@ -6,7 +6,7 @@
 
 **Auth required:** YES
 
-**Query requirements:** None aside from auth
+**Query input/requirements:** None aside from auth
 
 **Response success status:** 200
 
@@ -19,54 +19,58 @@
 
 <h2>/api/capsules POST method</h2>
 
-<p>**URL:** `/api/capsules`</p>
+**URL:** `/api/capsules`
 
-<p>**Auth required:** YES</p>
+**Auth required:** YES
 
-<p>**Query requirements:** Must include title, contents, bury date, and open date fields. Image url field is optional. </p> 
+**Query requirements:** Must include title, contents, bury date, and open date fields. Image url field is optional.
 
-<p>**Response success status:** 201</p> 
+**Response success status:** 201
 
-<p>**Response success body:** An object including the just-posted data.</p> 
+**Response success body:** An object including the just-posted data.
 
-<p>**Possible errors:**</p>
-<p>403 Missing Required Data: Indicates that not all of the required fields were included in the query.</p> 
-<p>403 Invalid Authorization: Indicates that the authorization provided was not correct.</p> 
+**Possible errors:**
+403 Missing Required Data: Indicates that not all of the required fields were included in the query.
+403 Invalid Authorization: Indicates that the authorization provided was not correct.
 
 <hr>
 
 <h2>/api/capsules/:id GET method</h2>
 
-<p>**URL:** `/api/capsules/:id`</p>
+**URL:** `/api/capsules/:id`
 
-<p>**Auth required:** YES</p>
+**Auth required:** YES
 
-<p>**Query requirements:** Must include a valid Moment.js date object, that is greater than or equal to the given object's bury date.</p> 
+**Query requirements:** None aside from auth.
 
-<p>**Response success status:** 200</p> 
+**Response success status:** 200
 
-<p>**Response success body:** A JSON object including the id, title, contents and imageurl (if there is one).</p> 
+**Response success body:** A JSON object including the id, title, contents and imageurl (if there is one).
 
-<p>**Possible errors:**</p>
-<p>403 Invalid Authorization: Indicates that the authorization provided was not correct.</p> 
-<p>403 This capsule is not ready to be opened: Indicates that the current date is before the open date.</p> 
-<p>404 Invalid Capsule Id: No capsule was found that matches the given id.</p> 
+**Possible errors:**
+403 Invalid Authorization: Indicates that the authorization provided was not correct.
+
+403 This capsule is not ready to be opened: Indicates that the current date is before the open date.
+
+404 Invalid Capsule Id: No capsule was found that matches the given id.
 
 <hr>
 
 <h2>/api/capsules/:id DELETE method</h2>
 
-<p>**URL:** `/api/capsules/:id`</p>
+**URL:** `/api/capsules/:id`
 
-<p>**Auth required:** YES</p>
+**Auth required:** YES
 
-<p>**Query requirements:** Must include a valid Moment.js date object, that is greater than or equal to the given object's bury date.</p> 
+**Query requirements:** None aside from auth.
 
-<p>**Response success status:** 204</p> 
+**Response success status:** 204
 
-<p>**Response success body:** No body is included in a successful request, as the capsule with the url in the request has been deleted.</p> 
+**Response success body:** No body is included in a successful request, as the capsule with the url in the request has been deleted.
 
-<p>**Possible errors:**</p>
-<p>403 Invalid Authorization: Indicates that the authorization provided was not correct.</p> 
-<p>403 This capsule is not ready to be opened: Indicates that the current date is before the open date.</p> 
-<p>404 Invalid Capsule Id: No capsule was found that matches the given id.</p> 
+**Possible errors:**
+403 Invalid Authorization: Indicates that the authorization provided was not correct.
+
+403 This capsule is not ready to be opened: Indicates that the current date is before the open date.
+
+404 Invalid Capsule Id: No capsule was found that matches the given id.
