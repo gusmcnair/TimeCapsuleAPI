@@ -10,7 +10,7 @@
 
 **Response success status:** 200
 
-**Response success body:** A JSON object including id, title, bury date and open date.
+**Response success body:** A JSON object including id, title, bury date and open date of ALL currently existing capsules.
 
 **Possible errors:**
 403 Invalid Authorization: Indicates that the authorization provided was not correct.
@@ -27,7 +27,7 @@
 
 **Response success status:** 201
 
-**Response success body:** An object including the just-posted data.
+**Response success body:** An object including the just-posted data, confirming the existence of the new capsule.
 
 **Possible errors:**
 403 Missing Required Data: Indicates that not all of the required fields were included in the query.
@@ -45,7 +45,7 @@
 
 **Response success status:** 200
 
-**Response success body:** A JSON object including the id, title, contents and imageurl (if there is one).
+**Response success body:** A JSON object including the id, title, contents and imageurl (if there is one) for the capsule with the specified ID.
 
 **Possible errors:**
 403 Invalid Authorization: Indicates that the authorization provided was not correct.
