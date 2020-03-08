@@ -2,6 +2,8 @@
 
 <h2>/api/capsules GET method</h2>
 
+*The /api/capsules GET method returns the title, id and dates for all capsules, so they can be displayed on the main screen. It requires authentication, so that it only may be accessed by users of the Time Capsule client, but individual capsule open dates don't need to have passed.*
+
 **URL:** `/api/capsules`
 
 **Auth required:** YES
@@ -18,6 +20,8 @@
 <hr>
 
 <h2>/api/capsules POST method</h2>
+
+*The /api/capsules POST method is used to send all new capsule data to the server. Only one capsule may be sent at a time.*
 
 **URL:** `/api/capsules`
 
@@ -36,6 +40,9 @@
 <hr>
 
 <h2>/api/capsules/:id GET method</h2>
+
+*The /api/capsules/:id GET method may only be used on capsules that have passed their open date. It returns the contents of a capsule and its photo, if there is one. Only info for one capsule, as identified by its ID, is returned using this method.*
+
 
 **URL:** `/api/capsules/:id`
 
@@ -57,6 +64,8 @@
 <hr>
 
 <h2>/api/capsules/:id DELETE method</h2>
+
+*The /api/capsules/:id GET method may only be used on capsules that have passed their open date. It deletes an existing capsule, selected by its ID, and only returns a 204 status.*
 
 **URL:** `/api/capsules/:id`
 
