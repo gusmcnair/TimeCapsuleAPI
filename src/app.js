@@ -122,7 +122,7 @@ app
    app.use(function errorHandler(error, req, res, next) {
        let response
        if (NODE_ENV === 'production') {
-         response = { error: error.message }
+         response = { error: { message: 'blerver error' } }
        } else {
          console.error(error)
          response = { message: error.message, error }
