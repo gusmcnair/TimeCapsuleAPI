@@ -51,7 +51,7 @@ app.use(
 
 app.use(morgan(morganOption))
 app.use(helmet())
-app.use(cors())
+//app.use(cors())
 
 
 app
