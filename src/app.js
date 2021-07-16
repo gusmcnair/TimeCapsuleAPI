@@ -43,11 +43,11 @@ const serializeCapsuleGet = (capsule) => ({
   opendates: moment.utc(capsule.opendates)
 })
 
-/*app.use(
+app.use(
     cors({
         origin: 'https://timecapsule.vercel.app/'
     })
-);*/
+);
 
 app.use(morgan(morganOption))
 app.use(helmet())
