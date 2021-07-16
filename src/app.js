@@ -51,7 +51,7 @@ const serializeCapsuleGet = (capsule) => ({
 
 app.use(morgan(morganOption))
 app.use(helmet())
-//app.use(cors())
+app.use(cors())
 
 
 app
