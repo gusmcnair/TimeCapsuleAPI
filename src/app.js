@@ -45,7 +45,7 @@ const serializeCapsuleGet = (capsule) => ({
 
 app.use(
     cors({
-        origin: 'https://timecapsule.vercel.app/'
+        origin: CLIENT_ORIGIN
     })
 );
 
